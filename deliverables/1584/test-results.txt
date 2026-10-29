@@ -1,0 +1,10 @@
+INPUT '3 4'
+Values separated by spaces: 1.0
+INPUT '-10 0 20'
+Values separated by spaces: 30.0
+INPUT ''
+Values separated by spaces: Error: Enter at least one finite number
+INPUT 'NaN'
+Values separated by spaces: Error: Enter at least one finite number
+INPUT 'hello'
+Values separated by spaces: Error: could not convert string to float: 'hello'

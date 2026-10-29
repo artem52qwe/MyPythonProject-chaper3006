@@ -1,0 +1,10 @@
+test_empty (test_app.MeasurementTests.test_empty) ... ok
+test_invalid_file (test_app.MeasurementTests.test_invalid_file) ... ok
+test_output (test_app.MeasurementTests.test_output) ... ok
+test_transform (test_app.MeasurementTests.test_transform) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.008s
+
+OK
+{12: 2, -3: 1, 8: 1, 25: 1}

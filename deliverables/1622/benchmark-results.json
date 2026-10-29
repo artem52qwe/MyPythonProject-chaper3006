@@ -1,0 +1,12 @@
+{
+  "before": {
+    "result": 719640040000,
+    "median_seconds": 0.20374420005828142,
+    "peak_bytes": 8947804
+  },
+  "after": {
+    "result": 719640040000,
+    "median_seconds": 3.00002284348011e-06,
+    "peak_bytes": 96
+  }
+}

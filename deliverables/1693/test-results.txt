@@ -1,0 +1,4 @@
+{"rows": [["South", 19.0], ["East", 12.0], ["West", 4.0]], "count": 3, "median": 12.0}
+{"rows": [], "count": 0, "median": null}
+Error: [Errno 2] No such file or directory: 'missing.csv'
+Filter, order, median, empty selection: PASS

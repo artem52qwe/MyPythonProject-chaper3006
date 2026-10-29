@@ -1,0 +1,140 @@
+$ git clone https://github.com/artem52qwe/MyPythonProject-chaper3006.git git-project
+Cloning into 'git-project'...
+warning: You appear to have cloned an empty repository.
+
+$ git switch --orphan master
+Switched to a new branch 'master'
+
+$ git config user.name Learning chaper3006
+
+$ git config user.email chaper3006@example.invalid
+
+$ git add .
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'main.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pricing.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'requirements.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test_pricing.py', LF will be replaced by CRLF the next time Git touches it
+
+$ git commit -m Initialize validated workshop cost modules
+[master (root-commit) 30d6658] Initialize validated workshop cost modules
+ 6 files changed, 59 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 README.md
+ create mode 100644 main.py
+ create mode 100644 pricing.py
+ create mode 100644 requirements.txt
+ create mode 100644 test_pricing.py
+
+$ git push -u origin master
+branch 'master' set up to track 'origin/master'.
+To https://github.com/artem52qwe/MyPythonProject-chaper3006.git
+ * [new branch]      master -> master
+
+$ git tag ci-before
+
+$ git switch -c codex/style-and-report
+Switched to a new branch 'codex/style-and-report'
+
+$ git add .
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'main.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pricing.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'requirements.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test_pricing.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'temporary-note.txt', LF will be replaced by CRLF the next time Git touches it
+
+$ git commit -m Introduce controlled style violations for inspection
+[codex/style-and-report 36e4f32] Introduce controlled style violations for inspection
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+ create mode 100644 temporary-note.txt
+
+$ git rm temporary-note.txt
+rm 'temporary-note.txt'
+
+$ git add .
+warning: in the working copy of 'main.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pricing.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'reporting.py', LF will be replaced by CRLF the next time Git touches it
+
+$ git commit -m Fix formatting and add ruble report
+[codex/style-and-report 052ffdc] Fix formatting and add ruble report
+ 4 files changed, 12 insertions(+), 5 deletions(-)
+ create mode 100644 reporting.py
+ delete mode 100644 temporary-note.txt
+
+$ python -m flake8 main.py pricing.py reporting.py test_pricing.py
+
+$ python -m unittest -v
+test_cost (test_pricing.CostTests.test_cost) ... ok
+test_invalid (test_pricing.CostTests.test_invalid) ... ok
+test_zero (test_pricing.CostTests.test_zero) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK
+
+$ git push -u origin HEAD
+branch 'codex/style-and-report' set up to track 'origin/codex/style-and-report'.
+remote: 
+remote: Create a pull request for 'codex/style-and-report' on GitHub by visiting:        
+remote:      https://github.com/artem52qwe/MyPythonProject-chaper3006/pull/new/codex/style-and-report        
+remote: 
+To https://github.com/artem52qwe/MyPythonProject-chaper3006.git
+ * [new branch]      HEAD -> codex/style-and-report
+
+$ git switch master
+Your branch is up to date with 'origin/master'.
+Switched to branch 'master'
+
+$ git pull --ff-only
+Updating 30d6658..20d660f
+Fast-forward
+ main.py      | 5 +++--
+ reporting.py | 7 +++++++
+ 2 files changed, 10 insertions(+), 2 deletions(-)
+ create mode 100644 reporting.py
+From https://github.com/artem52qwe/MyPythonProject-chaper3006
+   30d6658..20d660f  master     -> origin/master
+
+$ git tag ci-after
+
+$ git add .
+warning: in the working copy of '.github/workflows/jenkins.yml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.github/workflows/native.yml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'ci/Dockerfile', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'ci/build.sh', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'ci/init.groovy', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'ci/notify.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'native/driver.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'native/native.c', LF will be replaced by CRLF the next time Git touches it
+
+$ git commit -m Add isolated Jenkins and native memory laboratories
+[master 761f596] Add isolated Jenkins and native memory laboratories
+ 8 files changed, 206 insertions(+)
+ create mode 100644 .github/workflows/jenkins.yml
+ create mode 100644 .github/workflows/native.yml
+ create mode 100644 ci/Dockerfile
+ create mode 100644 ci/build.sh
+ create mode 100644 ci/init.groovy
+ create mode 100644 ci/notify.py
+ create mode 100644 native/driver.py
+ create mode 100644 native/native.c
+
+$ git push origin master --tags
+To https://github.com/artem52qwe/MyPythonProject-chaper3006.git
+   20d660f..761f596  master -> master
+ * [new tag]         ci-after -> ci-after
+ * [new tag]         ci-before -> ci-before
+
+$ git log --all --graph --oneline --decorate
+* 761f596 (HEAD -> master, origin/master, origin/HEAD) Add isolated Jenkins and native memory laboratories
+*   20d660f (tag: ci-after) Merge reviewed workshop formatting exercise
+|\  
+| * 052ffdc (origin/codex/style-and-report, codex/style-and-report) Fix formatting and add ruble report
+| * 36e4f32 Introduce controlled style violations for inspection
+|/  
+* 30d6658 (tag: ci-before) Initialize validated workshop cost modules

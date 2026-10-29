@@ -1,0 +1,8 @@
+> One tool returned
+> One tool returned
+> Tools returned: 2
+> Counter cleared
+> Tools returned: 0
+> Unknown command: add, reset, show or quit
+> Session finished
+Event state assertions: PASS

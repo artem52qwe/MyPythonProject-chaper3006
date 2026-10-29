@@ -1,0 +1,14 @@
+"""Deliberately faulty educational price module."""
+import math
+
+
+def total(prices):
+    return sum(prices) / len(prices)
+
+
+def invoice(prices):
+    return round(total(prices), 2)
+
+
+if __name__ == "__main__":
+    print(invoice([12, 8]))

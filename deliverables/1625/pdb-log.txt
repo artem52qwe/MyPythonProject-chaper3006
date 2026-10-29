@@ -1,0 +1,4 @@
+Breakpoint 1 at c:\users\chips\documents\chatgpt\учеба\solutions-chaper3006\1625\broken.py:5
+[12, 8]
+20
+2

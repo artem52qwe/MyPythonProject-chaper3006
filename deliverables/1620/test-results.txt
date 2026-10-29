@@ -1,0 +1,7 @@
+ValueError: integer conversion rejected
+TypeError: length requires a collection
+IndexError: position outside collection
+ZeroDivisionError: divisor must be nonzero
+FileNotFoundError: input does not exist
+Finished: cleanup ran
+Messages and valid calculation: PASS

@@ -1,0 +1,9 @@
+test_invalid (test_orders.OrderTests.test_invalid) ... ok
+test_lifecycle (test_orders.OrderTests.test_lifecycle) ... ok
+test_paid (test_orders.OrderTests.test_paid) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK
+{'orders': 1, 'paid': 1, 'revenue': '901.00'}

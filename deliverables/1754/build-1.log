@@ -1,0 +1,54 @@
+Legacy code started this job.  No cause information is available
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/workshop-lab
+[workshop-lab] $ /bin/bash /tmp/jenkins15065896888971797686.sh
+STAGE checkout: read-only mirror of GitHub repository
+Cloning into 'workshop-1'...
+done.
+Note: switching to 'ci-before'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 30d6658 Initialize validated workshop cost modules
+30d66586cf3f917574bb29ea2fe80ba0132cb046 Initialize validated workshop cost modules
+STAGE dependencies: Python and flake8 installed in immutable image
+Python 3.13.5
+7.1.1 (mccabe: 0.7.0, pycodestyle: 2.12.1, pyflakes: 3.2.0) CPython 3.13.5 on
+Linux
+STAGE syntax
+STAGE quality
+STAGE tests
+test_cost (test_pricing.CostTests.test_cost) ... ok
+test_invalid (test_pricing.CostTests.test_invalid) ... ok
+test_zero (test_pricing.CostTests.test_zero) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK
+STAGE package
+11000
+test_cost (test_pricing.CostTests.test_cost) ... ok
+test_invalid (test_pricing.CostTests.test_invalid) ... ok
+test_zero (test_pricing.CostTests.test_zero) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK
+11000
+LOCAL SMTP: notification captured, no external recipient
+Finished: SUCCESS

@@ -1,0 +1,9 @@
+* 4694d84 (HEAD -> master, origin/master, origin/HEAD) Package every application module and verify extracted release
+* ee3bf4a Trust the exact read-only lab Git directory
+* 761f596 Add isolated Jenkins and native memory laboratories
+*   20d660f (tag: ci-after) Merge reviewed workshop formatting exercise
+|\  
+| * 052ffdc (origin/codex/style-and-report, codex/style-and-report) Fix formatting and add ruble report
+| * 36e4f32 Introduce controlled style violations for inspection
+|/  
+* 30d6658 (tag: ci-before) Initialize validated workshop cost modules

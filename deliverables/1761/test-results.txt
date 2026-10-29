@@ -1,0 +1,14 @@
+broken.py:2:1: 'math' imported but unused
+Breakpoint 1 at c:\users\chips\documents\chatgpt\учеба\solutions-chaper3006\1761\broken.py:5
+[12, 8]
+20
+2
+test_empty (test_prices.PriceTests.test_empty) ... ok
+test_fraction (test_prices.PriceTests.test_fraction) ... ok
+test_invalid (test_prices.PriceTests.test_invalid) ... ok
+test_total (test_prices.PriceTests.test_total) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+OK
