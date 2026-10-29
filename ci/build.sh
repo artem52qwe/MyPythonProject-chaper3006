@@ -3,6 +3,7 @@ set -eu
 trap 'result=$?; python3 /source/ci/notify.py "$result"' EXIT
 echo "STAGE checkout: read-only mirror of GitHub repository"
 git config --global --add safe.directory /source
+git config --global --add safe.directory /source/.git
 git clone /source "workshop-$BUILD_NUMBER"
 cd "workshop-$BUILD_NUMBER"
 if [ "$BUILD_NUMBER" = 1 ]; then git checkout ci-before; else git checkout ci-after; fi
