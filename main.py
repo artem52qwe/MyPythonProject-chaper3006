@@ -1,6 +1,7 @@
-"""Print a sample workshop estimate."""
+"""Print a formatted workshop estimate."""
 from pricing import batch_cost
+from reporting import format_rubles
 
 
 if __name__ == "__main__":
-    print(batch_cost(2750, 4))
+    print(format_rubles(batch_cost(2750, 4)))
