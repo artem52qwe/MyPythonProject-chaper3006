@@ -1,0 +1,45 @@
+name: Jenkins Docker laboratory
+on:
+  push:
+    branches: [master]
+permissions:
+  contents: read
+jobs:
+  jenkins:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Build isolated Jenkins image
+        run: docker build -f ci/Dockerfile -t jenkins-lab .
+      - name: Execute two builds
+        run: |
+          mkdir -p output
+          chmod 777 output
+          docker run -d --name jenkins-lab --network none -v "$PWD:/source:ro" -v "$PWD/output:/out" jenkins-lab
+          for i in $(seq 1 120); do
+            if [ -f output/done ] || [ -f output/failure.txt ]; then break; fi
+            sleep 3
+          done
+          docker logs jenkins-lab > output/jenkins.log 2>&1
+          python3 -c "import json; r=json.load(open('output/results.json')); assert len(r)==2 and all(x['result']=='SUCCESS' for x in r), r"
+      - name: Publish evidence
+        if: always()
+        run: |
+          for file in output/results.json output/build-1.log output/build-2.log output/notice-1.eml output/notice-2.eml output/failure.txt; do
+            if [ -f "$file" ]; then
+              echo "### $file" >> "$GITHUB_STEP_SUMMARY"
+              echo '```text' >> "$GITHUB_STEP_SUMMARY"
+              cat "$file" >> "$GITHUB_STEP_SUMMARY"
+              echo '' >> "$GITHUB_STEP_SUMMARY"
+              echo '```' >> "$GITHUB_STEP_SUMMARY"
+            fi
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: jenkins-evidence
+          path: output/

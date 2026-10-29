@@ -1,0 +1,30 @@
+name: Native allocation and coverage
+on:
+  push:
+    branches: [master]
+    paths: ['native/**', '.github/workflows/native.yml']
+permissions:
+  contents: read
+jobs:
+  analysis:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - run: sudo apt-get update -qq && sudo apt-get install -y valgrind
+      - name: Execute before and after native calls
+        working-directory: native
+        run: |
+          gcc -g -O0 -fPIC --coverage -shared native.c -o native.so
+          valgrind --leak-check=full --show-leak-kinds=definite --log-file=before.log python3 driver.py 1
+          valgrind --leak-check=full --show-leak-kinds=definite --log-file=after.log python3 driver.py 0
+          gcov -b native.so-native.gcno > coverage.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: native-evidence
+          path: |
+            native/*.log
+            native/*.gcov
