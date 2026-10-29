@@ -12,11 +12,13 @@ echo "STAGE dependencies: Python and flake8 installed in immutable image"
 python3 --version
 python3 -m flake8 --version
 echo "STAGE syntax"
-python3 -m compileall -q main.py pricing.py
+python3 -m compileall -q .
 echo "STAGE quality"
-python3 -m flake8 main.py pricing.py test_pricing.py
+python3 -m flake8 ./*.py
 echo "STAGE tests"
 python3 -m unittest -v
 echo "STAGE package"
-python3 -m zipfile -c "/out/workshop-$BUILD_NUMBER.zip" main.py pricing.py
+python3 -m zipfile -c "/out/workshop-$BUILD_NUMBER.zip" ./*.py README.md requirements.txt
+python3 -m zipfile -e "/out/workshop-$BUILD_NUMBER.zip" package-check
+(cd package-check && python3 main.py && python3 -m unittest -v)
 python3 main.py
